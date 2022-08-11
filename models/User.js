@@ -26,8 +26,8 @@ const userSchema = new Schema(
         friends: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'user' //capital?
-            }
+                ref: 'user' //capital? lower?
+            },
         ],
     },
     {
@@ -40,8 +40,8 @@ const userSchema = new Schema(
 
 //create a virtual property
 userSchema
-.virtual('friendCount')
-.get(function() {
+.virtual('friendCount').get(function() {
+    console.log(this.friends)
     return this.friends.length;
 });
 
