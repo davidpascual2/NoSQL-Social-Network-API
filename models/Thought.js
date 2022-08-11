@@ -39,7 +39,7 @@ const thoughtSchema = new Schema(
         createdAt: {
             type: Date, // ?
             default: () => Date.now, // timestamp?
-            get: formatDate, // getter method? //FIX THIS
+            //get: formatDate, // getter method? //FIX THIS
         },
         username: {
             type: String,

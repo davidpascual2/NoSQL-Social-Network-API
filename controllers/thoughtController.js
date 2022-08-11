@@ -4,7 +4,10 @@ module.exports = {
 
     getThoughts(req, res) { // DONE
         User.find({})
-            .then((thoughts) => res.json(thoughts)) //thoughtData?
+            .then((thoughts) => {
+            console.log(thoughts) // ta added 
+            return res.json(thoughts) // ta added
+             res.json(thoughts)}) 
             .catch((err) => res.status(500).json(err));
     },
     getSingleThought(req, res) { // DONE

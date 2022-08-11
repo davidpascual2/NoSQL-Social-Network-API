@@ -14,8 +14,8 @@ const userSchema = new Schema(
             required: true, //true?
             unique: true,
             lowercase: true,
-            validate: [isEmail] //???????
-            //match: ?
+            // validate: [isEmail] 
+            match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, "Your email was Wrong,please enter a valid email address",]
         },
         thoughts: [ // thoughts is reference to another object based on the id (id of another user object)
             {
