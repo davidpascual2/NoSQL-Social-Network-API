@@ -14,9 +14,9 @@ module.exports = {
                 res.status(500).json(err)
             });
     },
-    getSingleUser(req, res) { // done ?
+    getSingleUser(req, res) { // ASK TAs / TUTOR ABOUT THIS!!!!!
         User.findOne({ _id: req.params.userId })
-            .select('__v')
+            .select('-__v')
             .then((user) =>
             !user
                 ? res.status(404).json({message: "no user with that ID" })
@@ -69,7 +69,7 @@ module.exports = {
         console.log('adding friend')
         User.findOneAndUpdate(
             { _id: req.params.userId},
-            { $addToSet: { friends: req.params.friendsId } },
+            { $addToSet: { friends: req.params.friendsId } }, //push to friends subdocument friendId
             { runValidators: true, new: true },
         )
             .then((user) =>

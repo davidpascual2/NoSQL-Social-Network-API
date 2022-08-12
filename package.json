@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "node index",
+    "start": "nodemon index",
     "dev": "nodemon index",
     "seed": "node utils/seed",
     "heroku-postbuild": "node utils/seed.js"
